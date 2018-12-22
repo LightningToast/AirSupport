@@ -7,11 +7,13 @@ public class GunController : MonoBehaviour {
     public GameObject impact;
     public float range = 10f;
 
+    AudioSource audioSrc;
+
     float nextTimeToFire = 0f;
     float fireRate = 4;
 	// Use this for initialization
 	void Start () {
-		
+        audioSrc = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -28,6 +30,8 @@ public class GunController : MonoBehaviour {
         {
             return;
         }
+
+        audioSrc.Play();
         muzzleFlash.Play();
 
 
