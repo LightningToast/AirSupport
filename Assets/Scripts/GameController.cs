@@ -5,11 +5,13 @@ using UnityEngine.Networking;
 
 public class GameController : MonoBehaviour {
     NetworkManager nManager;
+    NetworkDiscovery dManager;
     public bool AR;
     public bool VR;
 	// Use this for initialization
 	void Start () {
         nManager = GetComponent<NetworkManager>();
+        dManager = GetComponent<NetworkDiscovery>();
 	}
 	
 	// Update is called once per frame
@@ -18,5 +20,10 @@ public class GameController : MonoBehaviour {
         {
             nManager.StartHost();
         }
-	}
+        if (Input.GetKeyDown("i"))
+        {
+            dManager.StartAsServer();
+        }
+
+    }
 }
