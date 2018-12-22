@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47ba6898d8b43ca46a92f240ae00bf72, type: 3}
+  m_Name: __actions_GroundPlayer
+  m_EditorClassIdentifier: 
+  allActions:
+  - {fileID: 11400000, guid: ba9d3ff64b52ba14481c3ad4cac746cc, type: 2}
+  - {fileID: 11400000, guid: a0be55aa13421054490854bd2d8f337c, type: 2}
+  - {fileID: 11400000, guid: 833458aca10678446b0ec1f36d02a57d, type: 2}
+  nonVisualInActions:
+  - {fileID: 11400000, guid: ba9d3ff64b52ba14481c3ad4cac746cc, type: 2}
+  - {fileID: 11400000, guid: a0be55aa13421054490854bd2d8f337c, type: 2}
+  - {fileID: 11400000, guid: 833458aca10678446b0ec1f36d02a57d, type: 2}
+  visualActions: []
+  poseActions: []
+  skeletonActions: []
+  outActionArray: []
+  fullPath: /actions/GroundPlayer
+  usage: single
+  inActions: {fileID: 11400000, guid: 7f4e4cbca906c894ba86d9af52704835, type: 2}

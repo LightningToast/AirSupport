@@ -8,14 +8,16 @@ public class GroundMovement : NetworkBehaviour {
     public float moveSpeed = 0.01f;
 	// Use this for initialization
 	void Start () {
-        trackedObject = GameObject.Find("VRPlayer");
+        trackedObject = GameObject.Find("[CameraRig]/Camera");
 	}
 	
 	// Update is called once per frame
 	void Update () {
         if (hasAuthority)
         {
-            Vector3 pos = transform.position;
+            transform.position = trackedObject.transform.position;
+            transform.rotation = trackedObject.transform.rotation;
+            /*Vector3 pos = transform.position;
             if (Input.GetKey("w"))
             {
                 pos.z += moveSpeed;
@@ -32,7 +34,7 @@ public class GroundMovement : NetworkBehaviour {
             {
                 pos.x -= moveSpeed;
             }
-            transform.position = pos;
+            transform.position = pos;*/
         }
     }
 }

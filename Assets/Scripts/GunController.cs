@@ -24,11 +24,11 @@ public class GunController : MonoBehaviour {
         }
     }
 
-    public void Shoot()
+    public bool Shoot()
     {
         if(Time.time < nextTimeToFire)
         {
-            return;
+            return false;
         }
 
         audioSrc.Play();
@@ -45,6 +45,8 @@ public class GunController : MonoBehaviour {
         StartCoroutine(Recoil());
 
         nextTimeToFire = Time.time + 1.0f / fireRate;
+
+        return true;
     }
 
     IEnumerator Recoil()

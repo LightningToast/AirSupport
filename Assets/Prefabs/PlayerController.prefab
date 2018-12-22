@@ -91,6 +91,6 @@ MonoBehaviour:
   ARTrackedName: Drone
   ARControlledPrefab: {fileID: 1247399098668840, guid: bd749e1a13e2a4220b8d904e5eec4064,
     type: 2}
-  VRTrackedName: VRPlayer
+  VRTrackedName: '[CameraRig]/Camera'
   VRControlledPrefab: {fileID: 1801208339374584, guid: 3a848c675da3e473f8a557dad3b0830f,
     type: 2}
