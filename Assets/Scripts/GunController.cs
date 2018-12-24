@@ -44,7 +44,7 @@ public class GunController : MonoBehaviour {
         if(Physics.Raycast(bulletSpawnLoc.transform.position, transform.forward, out hit, range))
         {
             GameObject imp = (GameObject) Instantiate(impact, hit.point, Quaternion.LookRotation(hit.normal));
-            Destroy(imp, 2f);
+            Destroy(imp, 5f);
             imp.transform.parent = hit.collider.gameObject.transform;
 
 
