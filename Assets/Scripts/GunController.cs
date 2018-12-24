@@ -40,6 +40,11 @@ public class GunController : MonoBehaviour {
         {
             GameObject imp = (GameObject) Instantiate(impact, hit.point, Quaternion.LookRotation(hit.normal));
             Destroy(imp, 0.2f);
+
+            if(hit.collider.gameObject.GetComponent<TargetManager>() != null)
+            {
+                hit.collider.gameObject.GetComponent<TargetManager>().Hit();
+            }
         }
 
         StartCoroutine(Recoil());
