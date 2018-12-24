@@ -36,8 +36,8 @@ public class GunController : MonoBehaviour {
         audioSrc.Play();
         muzzleFlash.Play();
 
-        GameObject proj = (GameObject)Instantiate(bullet, transform.position, transform.rotation);
-        proj.GetComponent<Rigidbody>().AddForce(bulletSpawnLoc.transform.forward * 2000f);
+        GameObject proj = (GameObject)Instantiate(bullet, bulletSpawnLoc.transform.position, transform.rotation);
+        proj.GetComponent<Rigidbody>().AddForce(bulletSpawnLoc.transform.forward * 100000f);
         Destroy(proj, 1f);
 
         RaycastHit hit;
