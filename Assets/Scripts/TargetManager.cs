@@ -31,7 +31,7 @@ public class TargetManager : MonoBehaviour {
             resetBool = false;
         }
 
-        print(Mathf.Abs(transform.rotation.eulerAngles.x - targetRot));
+        //print(Mathf.Abs(transform.rotation.eulerAngles.x - targetRot));
         if(Mathf.Abs(transform.rotation.eulerAngles.x - targetRot) > 2f) {
             transform.Rotate(direction * Vector3.right * Time.deltaTime * speed);
         }
