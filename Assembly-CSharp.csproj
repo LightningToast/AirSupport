@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\GroundMovement.cs" />
     <Compile Include="Assets\Scripts\GunController.cs" />
     <Compile Include="Assets\Scripts\PlayerManager.cs" />
+    <Compile Include="Assets\Scripts\TargetManager.cs" />
     <Compile Include="Assets\Scripts\VRHandController.cs" />
     <Compile Include="Assets\Shared\Ramps\Runtime\RampAsset.cs" />
     <Compile Include="Assets\Shared\Scripts\AdjustTimeScale.cs" />
