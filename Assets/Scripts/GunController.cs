@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GunController : MonoBehaviour {
     public ParticleSystem muzzleFlash;
+    public GameObject bulletSpawnLoc;
+    public GameObject bullet;
     public GameObject impact;
     public float range = 10f;
 
@@ -34,14 +36,19 @@ public class GunController : MonoBehaviour {
         audioSrc.Play();
         muzzleFlash.Play();
 
+        GameObject proj = (GameObject)Instantiate(bullet, transform.position, transform.rotation);
+        proj.GetComponent<Rigidbody>().AddForce(bulletSpawnLoc.transform.forward * 2000f);
+        Destroy(proj, 1f);
 
         RaycastHit hit;
-        if(Physics.Raycast(transform.position, transform.forward, out hit, range))
+        if(Physics.Raycast(bulletSpawnLoc.transform.position, transform.forward, out hit, range))
         {
             GameObject imp = (GameObject) Instantiate(impact, hit.point, Quaternion.LookRotation(hit.normal));
             Destroy(imp, 0.2f);
 
-            if(hit.collider.gameObject.GetComponent<TargetManager>() != null)
+
+
+            if (hit.collider.gameObject.GetComponent<TargetManager>() != null)
             {
                 hit.collider.gameObject.GetComponent<TargetManager>().Hit();
             }
