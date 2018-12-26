@@ -5,10 +5,11 @@ using UnityEngine.Networking;
 
 public class GroundMovement : NetworkBehaviour {
     public GameObject trackedObject;
+    public string trackedObjectName = "[CameraRig]/Camera";
     public float moveSpeed = 0.01f;
 	// Use this for initialization
 	void Start () {
-        trackedObject = GameObject.Find("[CameraRig]/Camera");
+        trackedObject = GameObject.Find(trackedObjectName);
 	}
 	
 	// Update is called once per frame

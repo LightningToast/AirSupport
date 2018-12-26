@@ -13,8 +13,8 @@ public class PlayerManager : NetworkBehaviour {
     public string ARTrackedName;
     public GameObject ARControlledPrefab;
 
-    public string VRTrackedName;
-    public GameObject VRControlledPrefab;
+    public string[] VRTrackedName;
+    public GameObject[] VRControlledPrefab;
 
     GameController controller;
     // Use this for initialization
@@ -33,8 +33,8 @@ public class PlayerManager : NetworkBehaviour {
             }
             if (controller.VR)
             {
-                trackedName = VRTrackedName;
-                controlledPrefab = VRControlledPrefab;
+                //trackedName = VRTrackedName;
+                //controlledPrefab = VRControlledPrefab;
 
                 trackedObject = GameObject.Find(trackedName);
 
@@ -82,13 +82,18 @@ public class PlayerManager : NetworkBehaviour {
         }
         else
         {
-            trackedName = VRTrackedName;
-            controlledPrefab = VRControlledPrefab;
+            //trackedName = VRTrackedName;
+            //controlledPrefab = VRControlledPrefab;
 
             //trackedObject = GameObject.Find(trackedName);
 
-            controlledObject = (GameObject)Instantiate(controlledPrefab, transform.position, transform.rotation);
-            NetworkServer.SpawnWithClientAuthority(controlledObject, base.connectionToClient);
+            for (int count = 0; count < VRControlledPrefab.Length; count++)
+            {
+                controlledObject = (GameObject)Instantiate(VRControlledPrefab[count], transform.position, transform.rotation);
+                NetworkServer.SpawnWithClientAuthority(controlledObject, base.connectionToClient);
+
+
+            }
 
             //controlledObject.GetComponent<Renderer>().enabled = false;
         }

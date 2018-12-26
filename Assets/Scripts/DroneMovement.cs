@@ -7,6 +7,7 @@ public class DroneMovement : NetworkBehaviour {
     public GameObject trackObj;
     public float moveSpeed = 0.1f;
     public float rotationSpeed = 0.1f;
+    public Transform droneCam;
 
     GameController controller;
     // Use this for initialization
@@ -20,9 +21,14 @@ public class DroneMovement : NetworkBehaviour {
         if (hasAuthority)
         {
             Vector3 rot = transform.rotation.eulerAngles;
+
             rot.y = trackObj.transform.rotation.eulerAngles.y;
             transform.rotation = Quaternion.Euler(Vector3.Lerp(transform.rotation.eulerAngles, rot, rotationSpeed));
             transform.position = Vector3.Lerp(transform.position, trackObj.transform.position, moveSpeed);
+
+            Vector3 cRot = droneCam.rotation.eulerAngles;
+            cRot.x = trackObj.transform.rotation.eulerAngles.x;
+            droneCam.rotation = Quaternion.Euler(cRot);
         }
         //transform.position = trackObj.transform.position;
 	}
