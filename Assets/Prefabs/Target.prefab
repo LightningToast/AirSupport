@@ -70,6 +70,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4645724840783368}
+  - component: {fileID: 114455300583293110}
+  - component: {fileID: 114811904799182864}
   m_Layer: 0
   m_Name: Target
   m_TagString: Untagged
@@ -366,6 +368,51 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &114455300583293110
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1725207089340186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfc99f0ca54b34224aa3f8713ebddb4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 114938183989803610}
+  networkIdentity: {fileID: 0}
+--- !u!114 &114811904799182864
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1725207089340186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 184
+    i1: 148
+    i2: 52
+    i3: 50
+    i4: 128
+    i5: 41
+    i6: 164
+    i7: 165
+    i8: 74
+    i9: 232
+    i10: 117
+    i11: 111
+    i12: 80
+    i13: 63
+    i14: 225
+    i15: 18
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!114 &114938183989803610
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -383,3 +430,4 @@ MonoBehaviour:
   resetTime: 1
   hitBool: 0
   resetBool: 0
+  networkTargetManager: {fileID: 0}

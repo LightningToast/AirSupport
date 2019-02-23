@@ -9,6 +9,8 @@ public class GunController : MonoBehaviour {
     public GameObject impact;
     public float range = 10f;
 
+    public PlayerManager networkGun;
+
     AudioSource audioSrc;
 
     float nextTimeToFire = 0f;
@@ -50,7 +52,10 @@ public class GunController : MonoBehaviour {
 
             if (hit.collider.gameObject.GetComponent<TargetManager>() != null)
             {
-                hit.collider.gameObject.GetComponent<TargetManager>().Hit();
+                //hit.collider.gameObject.GetComponent<TargetManager>().networkTargetManager.NetworkHit();
+                //.Hit();
+                print("Bullet hit");
+                networkGun.SendHitMessage(hit.collider.gameObject);
             }
         }
 

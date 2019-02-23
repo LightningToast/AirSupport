@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114848074437810552}
   - component: {fileID: 114518799430298864}
   - component: {fileID: 114643365989818346}
+  - component: {fileID: 114897229806201488}
   m_Layer: 0
   m_Name: NetworkPistolLeft
   m_TagString: Untagged
@@ -166,3 +167,14 @@ MonoBehaviour:
     i15: 118
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
+--- !u!114 &114897229806201488
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000600558588640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c22948b643a784ee8951b5fac1fb71bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

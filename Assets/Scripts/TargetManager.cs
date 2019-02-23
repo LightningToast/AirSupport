@@ -13,6 +13,8 @@ public class TargetManager : MonoBehaviour {
     public bool resetBool = false;
 
     AudioSource audio;
+
+    public NetworkTargetManager networkTargetManager;
 	// Use this for initialization
 	void Start () {
         audio = GetComponent<AudioSource>();
@@ -40,6 +42,7 @@ public class TargetManager : MonoBehaviour {
 
     public void Hit()
     {
+        print("Hit");
         audio.Play();
         direction = 1;
         targetRot = 90f;

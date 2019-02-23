@@ -9,8 +9,10 @@ public class GroundMovement : NetworkBehaviour {
     public float moveSpeed = 0.01f;
 	// Use this for initialization
 	void Start () {
+
         trackedObject = GameObject.Find(trackedObjectName);
-	}
+
+    }
 	
 	// Update is called once per frame
 	void Update () {

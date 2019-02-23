@@ -16,6 +16,10 @@ public class PlayerManager : NetworkBehaviour {
     public string[] VRTrackedName;
     public GameObject[] VRControlledPrefab;
 
+    public string[] VRGunNames;
+
+    public GunController gunController;
+
     GameController controller;
     // Use this for initialization
     void Start()
@@ -39,6 +43,11 @@ public class PlayerManager : NetworkBehaviour {
                 trackedObject = GameObject.Find(trackedName);
 
                 CmdSpawnPlayer(false);
+
+                foreach(string VRGunName in VRGunNames) {
+                    GameObject.Find(VRGunName).GetComponent<GunController>().networkGun = this;
+                    gunController = GameObject.Find(VRGunName).GetComponent<GunController>();
+                }
             }
         }
 	}
@@ -60,6 +69,21 @@ public class PlayerManager : NetworkBehaviour {
 
         }
 	}
+    public void SendHitMessage(GameObject target)
+    {
+
+        CmdSendHitMessage(target.name);
+    }
+    [Command]
+    public void CmdSendHitMessage(string targetName)
+    {
+        GameObject target = GameObject.Find(targetName);
+
+        target.GetComponent<TargetManager>().networkTargetManager.networkIdentity.AssignClientAuthority(this.GetComponent<NetworkIdentity>().connectionToClient);
+        target.GetComponent<TargetManager>().networkTargetManager.NetworkHit();
+        target.GetComponent<TargetManager>().networkTargetManager.networkIdentity.RemoveClientAuthority(this.GetComponent<NetworkIdentity>().connectionToClient);
+    }
+
     [Command]
     void CmdUpdatePosition()
     {

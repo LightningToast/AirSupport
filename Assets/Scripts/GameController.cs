@@ -8,11 +8,17 @@ public class GameController : MonoBehaviour {
     NetworkDiscovery dManager;
     public bool AR;
     public bool VR;
+
+    public GameObject targetPrefab;
+    public Vector3 targetPosition;
+
 	// Use this for initialization
 	void Start () {
         nManager = GetComponent<NetworkManager>();
         dManager = GetComponent<NetworkDiscovery>();
-	}
+
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -26,4 +32,6 @@ public class GameController : MonoBehaviour {
         }
 
     }
+
+
 }
