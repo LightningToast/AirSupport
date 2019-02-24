@@ -21,11 +21,17 @@ public class PlayerManager : NetworkBehaviour {
     public GunController gunController;
 
     GameController controller;
+
+    public bool VRPlayer;
+    public bool ARPlayer;
     // Use this for initialization
     void Start()
     {
         controller = GameObject.Find("NetworkManager").GetComponent<GameController>();
         if (isLocalPlayer) {
+            this.gameObject.transform.name = "LocalPlayerManager";
+            VRPlayer = controller.VR;
+            ARPlayer = controller.AR;
             if (controller.AR)
             {
                 trackedName = ARTrackedName;
@@ -34,6 +40,9 @@ public class PlayerManager : NetworkBehaviour {
                 trackedObject = GameObject.Find(trackedName);
 
                 CmdSpawnPlayer(true);
+
+                //GameObject.Find(VRGunName).GetComponent<GunController>().networkGun = this;
+
             }
             if (controller.VR)
             {
@@ -102,7 +111,7 @@ public class PlayerManager : NetworkBehaviour {
             controlledObject = (GameObject)Instantiate(controlledPrefab, transform.position, transform.rotation);
             NetworkServer.SpawnWithClientAuthority(controlledObject, base.connectionToClient);
 
-            controlledObject.GetComponent<Renderer>().enabled = false;
+            //controlledObject.GetComponent<Renderer>().enabled = false;
         }
         else
         {
